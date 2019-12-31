@@ -16,10 +16,13 @@ live_loop :kick do
   sleep 0.25
 end
 
+define :sn do |amp|
+  sample :sn_dub, amp: amp, start: 0.15, finish: 0.35, rate: 0.25
+end
+
 live_loop :snares do
   sleep 1
-  sample :sn_dub, start: 0.15, finish: 0.35, rate: 0.25, 
-    amp: 1 * master.tick * vol_snare
+  sn 1 * master.tick * vol_snare
   sleep 1
 end
 
@@ -28,7 +31,7 @@ live_loop :snare_break do
   sleep 15.75
   with_fx :reverb, mix: 0.3, room: 0.8 do
     with_fx :echo, mix: 0.4, decay: 12, phase: 0.75 do
-      snare 0.5 * master.tick * vol_snare
+      sn 0.5 * master.tick * vol_snare
     end
   end
   sleep 0.25
