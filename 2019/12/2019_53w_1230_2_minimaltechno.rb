@@ -84,17 +84,11 @@ live_loop :bassline do
     sleep 6
     use_synth :fm
     play_pattern_timed [:D1, :F1, :G1, :A1],[0.5,0.5,0.5,0.5],
-      amp: vol_bass * 6 * master.tick,
-      #amp:1,
-      divisor: 1, depth: 2.5,
-      _slide:1, _slide_shape: 4
+      amp: vol_bass * 6 * master.tick, divisor: 1, depth: 2.5
   end
   sleep 6
   play_pattern_timed [:E1, :D1, :C1, :D1],[0.5,0.5,0.5,0.5],
-    amp: vol_bass * 6 * master.tick,
-    #amp:1,
-    divisor: 1, depth: 2.5,
-    _slide:1, _slide_shape: 3
+    amp: vol_bass * 6 * master.tick, divisor: 1, depth: 2.5
   sleep 8
 end
 
